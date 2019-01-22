@@ -109,7 +109,7 @@
 
 
         y_auto = (parseInt(auto.style.top));
-        if (slir_lr && y_auto == 610) {
+        if (slir_bb && y_auto == 610) {
             snelheid = 0;
         }
         else {
@@ -125,7 +125,7 @@
 
 
         y_auto2 = (parseInt(auto2.style.top));
-        if (slir_lr && y_auto2 == 290) {
+        if (slir_bb && y_auto2 == 290) {
             snelheid = 0;
         }
         else {
@@ -141,7 +141,7 @@
 
 
         y_auto3 = (parseInt(auto3.style.left));
-        if (slir_bb && y_auto3 == 1010) {
+        if (slir_lr && y_auto3 == 1010) {
             snelheid = 0;
         }
         else {
@@ -150,14 +150,14 @@
 
         auto3.style.left = parseInt(auto3.style.left) - snelheid + 'px';
 
-        if (parseInt(auto3.style.left) < -150) {
+        if (parseInt(auto3.style.left) < -100) {
             auto3.style.left = "1550px";
 
         }
 
 
         y_auto4 = (parseInt(auto4.style.left));
-        if (slir_bb && y_auto4 == 680) {
+        if (slir_lr && y_auto4 == 680) {
             snelheid = 0;
         }
         else {
@@ -293,8 +293,8 @@
         stoplicht_boven.src = "afbeeldingen/stoplichtgroen_boven.png";
         stoplicht_links.src = "afbeeldingen/stoplichtrood_links.png";
         stoplicht_rechts.src = "afbeeldingen/stoplichtrood_rechts.png";
-        slir_lr = false;
-        slir_bb = true;
+        slir_lr = true;
+        slir_bb = false;
         slir_vglr = true;
         slir_vgbb = false;
     }
@@ -304,8 +304,8 @@
         stoplicht_boven.src = "afbeeldingen/stoplichtrood_boven.png";
         stoplicht_links.src = "afbeeldingen/stoplichtgroen_links.png";
         stoplicht_rechts.src = "afbeeldingen/stoplichtgroen_rechts.png";
-        slir_lr = true;
-        slir_bb = false;
+        slir_lr = false;
+        slir_bb = true;
         slir_vglr = false;
         slir_vgbb = true;
     }
@@ -316,7 +316,7 @@
         stoplicht_links.src = "afbeeldingen/stoplichtrood_links.png";
         stoplicht_rechts.src = "afbeeldingen/stoplichtrood_rechts.png";
         slir_lr = true;
-        slir_bb = true;
+        slir_bb = false;
         slir_vglr = true;
         slir_vgbb = true;
     }
@@ -337,7 +337,7 @@
         stoplicht_boven.src = "afbeeldingen/stoplichtrood_boven.png";
         stoplicht_links.src = "afbeeldingen/stoplichtoranje_links.png";
         stoplicht_rechts.src = "afbeeldingen/stoplichtoranje_rechts.png";
-        slir_lr = true;
+        slir_lr = false;
         slir_bb = true;
         slir_vglr = true;
         slir_vgbb = true;
