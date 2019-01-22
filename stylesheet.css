@@ -1,0 +1,24 @@
+/*stylesheet*/
+/*Cas Minke*/
+/*casminke@gmail.com*/
+input {
+    font-family: Impact, fantasy;
+    background-color: black;
+    color: lime;
+    border-style: solid;
+    border-color: lime;
+    border-radius: 10px;
+    padding: 10px
+}
+
+h1 {
+    font-family: Impact, fantasy;
+    color: lime;
+    background-color: black;
+    border-style: solid;
+    border-color: lime;
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+    margin-left: 50px;
+}

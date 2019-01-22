@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!--Cas Minke-->
+<!--casminke@gmail.com-->
+<head>
+    <title>kruispunt</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body background="afbeeldingen/kruispunt.png">
+<form>
+    <h1>Kruispunt opdracht.</h1>
+    <input type="button" value="start" onclick="start()">
+    <input type="button" value="stop" onclick="stop()">
+    <input type="button" value="opnieuw" onclick="opnieuw()">
+    <input type="button" value="aanzetten" onclick="aanzetten()">
+    <input type="button" value="knipperen" onclick="knipperen()">
+    <input type="button" value="uitzetten" onclick="uitzetten()">
+    <img src="afbeeldingen/stoplichtuit.png" id="stoplicht" width="45px" height="45px">
+    <img src="afbeeldingen/stoplichtuit_boven.png" id="stoplicht_boven" width="45px" height="45px">
+    <img src="afbeeldingen/stoplichtuit_links.png" id="stoplicht_links" width="45px" height="45px">
+    <img src="afbeeldingen/stoplichtuit_rechts.png" id="stoplicht_rechts" width="45px" height="45px">
+    <img src="afbeeldingen/bugatti.png" id="auto" width="45px" height="85px">
+    <img src="afbeeldingen/mustang.png" id="auto2" width="40px" height="80px">
+    <img src="afbeeldingen/lamborgini.png" id="auto3" width="85px" height="45px">
+    <img src="afbeeldingen/mercedes.png" id="auto4" width="79px" height="50px">
+    <img src="afbeeldingen/pedestrian_links.png" id="voetganger1" width="15px" height="15px">
+    <img src="afbeeldingen/pedestrian_rechts.png" id="voetganger2" width="15px" height="15px">
+    <img src="afbeeldingen/pedestrian_boven.png" id="voetganger3" width="15px" height="15px">
+    <img src="afbeeldingen/pedestrian_onder.png" id="voetganger4" width="15px" height="15px">
+    <img src="afbeeldingen/vis_links.png" id="vis1" width="25px" height="15px">
+    <img src="afbeeldingen/vis_rechts.png" id="vis2" width="25px" height="15px">
+    <img src="afbeeldingen/plane.png" id="vliegtuig1" width="100px" height="100px">
+</form>
+<script>
+    var auto = document.getElementById("auto");
+    var auto2 = document.getElementById("auto2");
+    var auto3 = document.getElementById("auto3");
+    var auto4 = document.getElementById("auto4");
+    var voetganger1 = document.getElementById("voetganger1");
+    var voetganger2 = document.getElementById("voetganger2");
+    var voetganger3 = document.getElementById("voetganger3");
+    var voetganger4 = document.getElementById("voetganger4");
+    var vis1 = document.getElementById("vis1");
+    var vis2 = document.getElementById("vis2");
+    var vliegtuig1 = document.getElementById("vliegtuig1");
+    var slir_lr = false;
+    var slir_bb = false;
+    var slir_vglr = false;
+    var slir_vgbb = false;
+    var rijden;
+    var werken;
+    var buitenwerking;
+    var uit;
+    var stoplicht = document.getElementById("stoplicht");
+    var stoplicht_boven = document.getElementById("stoplicht_boven");
+    var stoplicht_rechts = document.getElementById("stoplicht_rechts");
+    var stoplicht_links = document.getElementById("stoplicht_links");
+    stoplicht.style.position = "absolute";
+    stoplicht.style.left = "1000px";
+    stoplicht.style.top = "610px";
+    stoplicht_boven.style.position = "absolute";
+    stoplicht_boven.style.left = "730px";
+    stoplicht_boven.style.top = "330px";
+    stoplicht_links.style.position = "absolute";
+    stoplicht_links.style.left = "1000px";
+    stoplicht_links.style.top = "330px";
+    stoplicht_rechts.style.position = "absolute";
+    stoplicht_rechts.style.left = "720px";
+    stoplicht_rechts.style.top = "600px";
+    auto.style.position = "absolute";
+    auto.style.left = "925px";
+    auto.style.top = "750px";
+    auto2.style.position = "absolute";
+    auto2.style.left = "800px";
+    auto2.style.top = "-80px";
+    auto3.style.position = "absolute";
+    auto3.style.left = "1550px";
+    auto3.style.top = "410px";
+    auto4.style.position = "absolute";
+    auto4.style.left = "-100px";
+    auto4.style.top = "530px";
+    voetganger1.style.position = "absolute";
+    voetganger1.style.left = "-20px";
+    voetganger1.style.top = "367px";
+    voetganger2.style.position = "absolute";
+    voetganger2.style.left = "1520px";
+    voetganger2.style.top = "597px";
+    voetganger3.style.position = "absolute";
+    voetganger3.style.left = "992px";
+    voetganger3.style.top = "-20px";
+    voetganger4.style.position = "absolute";
+    voetganger4.style.left = "762px";
+    voetganger4.style.top = "755px";
+    vis1.style.position = "absolute";
+    vis1.style.left = "390px";
+    vis1.style.top = "250px";
+    vis2.style.position = "absolute";
+    vis2.style.left = "660px";
+    vis2.style.top = "220px";
+    vliegtuig1.style.position = "absolute";
+    vliegtuig1.style.left = "1550px";
+    vliegtuig1.style.top = "0px";
+
+
+
+    function start() {
+
+
+        rijden = setTimeout(start, 10);
+
+
+        y_auto = (parseInt(auto.style.top));
+        if (slir_lr && y_auto == 610) {
+            snelheid = 0;
+        }
+        else {
+            snelheid = 10;
+        }
+
+        auto.style.top = parseInt(auto.style.top) - snelheid + 'px';
+
+        if (parseInt(auto.style.top) < -80) {
+            auto.style.top = '900px';
+
+        }
+
+
+        y_auto2 = (parseInt(auto2.style.top));
+        if (slir_lr && y_auto2 == 290) {
+            snelheid = 0;
+        }
+        else {
+            snelheid = -10;
+        }
+
+        auto2.style.top = parseInt(auto2.style.top) - snelheid + 'px';
+
+        if (parseInt(auto2.style.top) > 900) {
+            auto2.style.top = '-100px';
+
+        }
+
+
+        y_auto3 = (parseInt(auto3.style.left));
+        if (slir_bb && y_auto3 == 1010) {
+            snelheid = 0;
+        }
+        else {
+            snelheid = 10;
+        }
+
+        auto3.style.left = parseInt(auto3.style.left) - snelheid + 'px';
+
+        if (parseInt(auto3.style.left) < -150) {
+            auto3.style.left = "1550px";
+
+        }
+
+
+        y_auto4 = (parseInt(auto4.style.left));
+        if (slir_bb && y_auto4 == 680) {
+            snelheid = 0;
+        }
+        else {
+            snelheid = -10;
+        }
+
+        auto4.style.left = parseInt(auto4.style.left) - snelheid + 'px';
+
+        if (parseInt(auto4.style.left) > 1550) {
+            auto4.style.left = "-100px";
+
+        }
+
+
+        y_voetganger1 = (parseInt(voetganger1.style.left));
+        if (slir_vglr && y_voetganger1 == 760) {
+            snelheid = 0;
+        }
+        else {
+            snelheid = -1;
+        }
+        voetganger1.style.left = parseInt(voetganger1.style.left) - snelheid + "px";
+
+        if (parseInt(voetganger1.style.left) > 1520) {
+            voetganger1.style.left = "-20px";
+        }
+
+        y_voetganger2 = (parseInt(voetganger2.style.left));
+        if (slir_vglr && y_voetganger2 == 995) {
+            snelheid = 0;
+        }
+        else {
+            snelheid = 1;
+        }
+        voetganger2.style.left = parseInt(voetganger2.style.left) - snelheid + "px";
+
+        if (parseInt(voetganger2.style.left) < -20) {
+            voetganger2.style.left = "1520px";
+        }
+
+        y_voetganger3 = (parseInt(voetganger3.style.top));
+        if (slir_vgbb && y_voetganger3 == 365) {
+            snelheid = 0;
+        }
+        else {
+            snelheid = -1;
+        }
+        voetganger3.style.top = parseInt(voetganger3.style.top) - snelheid + "px";
+
+        if (parseInt(voetganger3.style.top) > 755) {
+            voetganger3.style.top = "-20px";
+        }
+
+        y_voetganger4 = (parseInt(voetganger4.style.top));
+        if (slir_vgbb && y_voetganger4 == 600) {
+            snelheid = 0;
+        }
+        else {
+            snelheid = 1;
+        }
+        voetganger4.style.top = parseInt(voetganger4.style.top) - snelheid + "px";
+
+        if (parseInt(voetganger4.style.top) < -20) {
+            voetganger4.style.top = "755px";
+        }
+
+        vis1.style.left = parseInt(vis1.style.left) + 1 + "px";
+
+        if (parseInt(vis1.style.left) > 660) {
+            vis1.style.left = "390px";
+        }
+
+        vis2.style.left = parseInt(vis2.style.left) - 1 + "px";
+
+        if (parseInt(vis2.style.left) < 380) {
+            vis2.style.left = "660px";
+        }
+
+        vliegtuig1.style.left = parseInt(vliegtuig1.style.left) - 3 + "px";
+        vliegtuig1.style.top = parseInt(vliegtuig1.style.top) + 1 + "px";
+
+        if (parseInt(vliegtuig1.style.left) < -1500) {
+            vliegtuig1.style.left = "1550px";
+            vliegtuig1.style.top = "0px";
+        }
+
+    }
+
+
+    function stop() {
+        clearTimeout(rijden);
+    }
+
+    function opnieuw() {
+        clearTimeout(rijden);
+        auto.style.top = "800px";
+        auto2.style.top = "-100px";
+        auto3.style.left = "1550px";
+        auto4.style.left = "-100px";
+    }
+
+    function aanzetten() {
+        clearTimeout(uit);
+        clearTimeout(buitenwerking);
+        maakroodgroen();
+        werken = setTimeout(maakRoodGeel, 3000);
+        werken = setTimeout(maakGroenRood, 6000);
+        werken = setTimeout(maakGeelRood, 9000);
+        werken = setTimeout(aanzetten, 12000);
+    }
+
+    function knipperen() {
+        clearTimeout(uit);
+        clearTimeout(werken);
+        maakoranje();
+        buitenwerking = setTimeout(zetuit, 500);
+        buitenwerking = setTimeout(knipperen, 1000);
+    }
+
+
+    function uitzetten() {
+        clearTimeout(buitenwerking);
+        clearTimeout(werken);
+        uit = setTimeout(zetuit, 500);
+        uit = setTimeout(zetuit, 1000);
+        uit = setTimeout(zetuit, 2000);
+        uit = setTimeout(zetuit, 4000);
+        uit = setTimeout(zetuit, 8000);
+    }
+
+    function maakroodgroen() {
+        stoplicht.src = "afbeeldingen/stoplichtgroen.png";
+        stoplicht_boven.src = "afbeeldingen/stoplichtgroen_boven.png";
+        stoplicht_links.src = "afbeeldingen/stoplichtrood_links.png";
+        stoplicht_rechts.src = "afbeeldingen/stoplichtrood_rechts.png";
+        slir_lr = false;
+        slir_bb = true;
+        slir_vglr = true;
+        slir_vgbb = false;
+    }
+
+    function maakGroenRood() {
+        stoplicht.src = "afbeeldingen/stoplichtrood.png";
+        stoplicht_boven.src = "afbeeldingen/stoplichtrood_boven.png";
+        stoplicht_links.src = "afbeeldingen/stoplichtgroen_links.png";
+        stoplicht_rechts.src = "afbeeldingen/stoplichtgroen_rechts.png";
+        slir_lr = true;
+        slir_bb = false;
+        slir_vglr = false;
+        slir_vgbb = true;
+    }
+
+    function maakRoodGeel() {
+        stoplicht.src = "afbeeldingen/stoplichtoranje.png";
+        stoplicht_boven.src = "afbeeldingen/stoplichtoranje_boven.png";
+        stoplicht_links.src = "afbeeldingen/stoplichtrood_links.png";
+        stoplicht_rechts.src = "afbeeldingen/stoplichtrood_rechts.png";
+        slir_lr = true;
+        slir_bb = true;
+        slir_vglr = true;
+        slir_vgbb = true;
+    }
+
+    function zetuit() {
+        stoplicht.src = "afbeeldingen/stoplichtuit.png";
+        stoplicht_boven.src = "afbeeldingen/stoplichtuit_boven.png";
+        stoplicht_links.src = "afbeeldingen/stoplichtuit_links.png";
+        stoplicht_rechts.src = "afbeeldingen/stoplichtuit_rechts.png";
+        slir_lr = false;
+        slir_bb = false;
+        slir_vglr = false;
+        slir_vgbb = false;
+    }
+
+    function maakGeelRood() {
+        stoplicht.src = "afbeeldingen/stoplichtrood.png";
+        stoplicht_boven.src = "afbeeldingen/stoplichtrood_boven.png";
+        stoplicht_links.src = "afbeeldingen/stoplichtoranje_links.png";
+        stoplicht_rechts.src = "afbeeldingen/stoplichtoranje_rechts.png";
+        slir_lr = true;
+        slir_bb = true;
+        slir_vglr = true;
+        slir_vgbb = true;
+    }
+
+    function maakoranje() {
+        stoplicht.src = "afbeeldingen/stoplichtoranje.png";
+        stoplicht_boven.src = "afbeeldingen/stoplichtoranje_boven.png";
+        stoplicht_links.src = "afbeeldingen/stoplichtoranje_links.png";
+        stoplicht_rechts.src = "afbeeldingen/stoplichtoranje_rechts.png";
+        slir_lr = false;
+        slir_bb = false;
+        slir_vglr = false;
+        slir_vgbb = false;
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
