@@ -47,7 +47,10 @@
     var slir_vglr = false;
     var slir_vgbb = false;
     var rijden;
-    var werken;
+    var werken1;
+    var werken2;
+    var werken3;
+    var werken4;
     var buitenwerking;
     var uit;
     var stoplicht = document.getElementById("stoplicht");
@@ -263,15 +266,18 @@
         clearTimeout(uit);
         clearTimeout(buitenwerking);
         maakroodgroen();
-        werken = setTimeout(maakRoodGeel, 3000);
-        werken = setTimeout(maakGroenRood, 6000);
-        werken = setTimeout(maakGeelRood, 9000);
-        werken = setTimeout(aanzetten, 12000);
+        werken1 = setTimeout(maakRoodGeel, 3000);
+        werken2 = setTimeout(maakGroenRood, 6000);
+        werken3 = setTimeout(maakGeelRood, 9000);
+        werken4 = setTimeout(aanzetten, 12000);
     }
 
     function knipperen() {
         clearTimeout(uit);
-        clearTimeout(werken);
+        clearTimeout(werken1);
+        clearTimeout(werken2);
+        clearTimeout(werken3);
+        clearTimeout(werken4);
         maakoranje();
         buitenwerking = setTimeout(zetuit, 500);
         buitenwerking = setTimeout(knipperen, 1000);
@@ -280,7 +286,10 @@
 
     function uitzetten() {
         clearTimeout(buitenwerking);
-        clearTimeout(werken);
+        clearTimeout(werken1);
+        clearTimeout(werken2);
+        clearTimeout(werken3);
+        clearTimeout(werken4);
         uit = setTimeout(zetuit, 500);
         uit = setTimeout(zetuit, 1000);
         uit = setTimeout(zetuit, 2000);
